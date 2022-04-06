@@ -35,7 +35,7 @@ jobs:
         $outputPath = "${{github.workspace}}/linting/report.json"
 
         dotnet tool install --global dotnet-format
-        dotnet format --severity error --report $outputPath
+        dotnet format --verify-no-changes --report $outputPath
       shell: pwsh
     - uses: actions/upload-artifact@v3
       name: Upload artifacts
