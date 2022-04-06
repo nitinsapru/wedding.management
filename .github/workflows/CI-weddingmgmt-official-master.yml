@@ -1,4 +1,4 @@
-name: .NET
+name: CI-weddingmgmt-official-master
 
 on:
   push:
@@ -35,7 +35,7 @@ jobs:
         $outputPath = "${{github.workspace}}/linting/report.json"
 
         dotnet tool install --global dotnet-format
-        dotnet format --check --severity error --report $outputPath
+        dotnet format --severity error --report $outputPath
       shell: pwsh
     - uses: actions/upload-artifact@v3
       name: Upload artifacts
