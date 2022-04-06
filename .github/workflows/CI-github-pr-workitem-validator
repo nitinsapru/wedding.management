@@ -11,10 +11,5 @@ jobs:
     - name: Get PR context
       id: pr-context
       run: |
-        if("${{github.event_name}}"" -ne "pull_request"){
-            Write-Host "This is not a PR triggered event."
-            return;
-        }
-
         Write-Host "PR# ${{ github.event.pull_request.number }}"
       shell: pwsh
