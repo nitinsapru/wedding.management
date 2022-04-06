@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "wedding.management.api", "wedding.management.api\wedding.management.api.csproj", "{839F0017-5D16-4D25-A583-44F790A558E7}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "wedding.domain", "wedding.domain\wedding.domain.csproj", "{EE1A875F-7074-4198-A342-340146D83326}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{839F0017-5D16-4D25-A583-44F790A558E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{839F0017-5D16-4D25-A583-44F790A558E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{839F0017-5D16-4D25-A583-44F790A558E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{839F0017-5D16-4D25-A583-44F790A558E7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE1A875F-7074-4198-A342-340146D83326}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE1A875F-7074-4198-A342-340146D83326}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE1A875F-7074-4198-A342-340146D83326}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE1A875F-7074-4198-A342-340146D83326}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {90AB61CA-E029-4E33-8850-42376261D749}
+	EndGlobalSection
+EndGlobal
