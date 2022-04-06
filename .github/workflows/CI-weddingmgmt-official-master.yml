@@ -42,4 +42,4 @@ jobs:
       name: Upload artifacts
       with:
         name: Linting Report
-        path: ${{github.workspace}}
+        path: ${{github.workspace}}/linting
