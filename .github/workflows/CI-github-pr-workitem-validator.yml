@@ -21,7 +21,7 @@ jobs:
         if($pullRequestData.description -eq $null){
 
             $bodyContent = "Please add link to an Azure Devops workitem to associate with the PR."
-            Invoke-WebRequest -Uri $addCommentUri -Headers @{'Accept' = 'application/json'; 'Authorization' = 'token ${{github.token}}'} -Body '{"body": "Please add link to an Azure Devops workitem to associate with the PR."}'
+            Invoke-WebRequest -Uri $addCommentUri -Method POST -Headers @{'Accept' = 'application/json'; 'Authorization' = 'token ${{github.token}}'} -Body '{"body": "Please add link to an Azure Devops workitem to associate with the PR."}'
             Write-Host $bodyContent
             exit 1;
         }
