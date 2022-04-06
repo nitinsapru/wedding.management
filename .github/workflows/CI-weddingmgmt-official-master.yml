@@ -13,13 +13,32 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - name: Setup .NET
+    - name: Setup .NET 5
       uses: actions/setup-dotnet@v2
       with:
-        dotnet-version: 5.0.x
+        dotnet-version: 5.0.x 
+    - name: Setup .NET 6
+      uses: actions/setup-dotnet@v2
+      with:
+        dotnet-version: 6.0.x
     - name: Restore dependencies
+      id: restore
       run: dotnet restore
+      shell: pwsh
     - name: Build
-      run: dotnet build --no-restore
-    - name: Test
-      run: dotnet test --no-build --verbosity normal
+      id: build
+      run: dotnet build --no-restore --configuration Release
+      shell: pwsh
+    - name: Check for code styling
+      id: code-linting
+      run: |
+        $outputPath = "${{github.workspace}}/linting/report.json"
+
+        dotnet tool install --global dotnet-format
+        dotnet format --check --severity error --report $outputPath
+      shell: pwsh
+    - uses: actions/upload-artifact@v3
+      name: Upload artifacts
+      with:
+        name: Linting Report
+        path: ${{github.workspace}}
