@@ -1,0 +1,20 @@
+name: CI-github-pr-workitem-validator
+on: [pull_request]
+
+jobs:
+  label:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+    steps:
+    - name: Get PR context
+      id: pr-context
+      run: |
+        if("${{github.event_name}}"" -ne "pull_request"){
+            Write-Host "This is not a PR triggered event."
+            return;
+        }
+
+        Write-Host "PR# ${{ github.event.pull_request.number }}"
+      shell: pwsh
