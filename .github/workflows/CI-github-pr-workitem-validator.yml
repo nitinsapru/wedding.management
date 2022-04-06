@@ -2,7 +2,8 @@ name: CI-github-pr-workitem-validator
 on: [pull_request]
 
 jobs:
-  Validate Workitem Relation:
+  Validate-Workitem-Relation:
+    name: Validate Workitem Relation
     runs-on: ubuntu-latest
     permissions:
       contents: read
