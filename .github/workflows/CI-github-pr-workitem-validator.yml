@@ -14,14 +14,14 @@ jobs:
         Write-Host "PR# ${{ github.event.pull_request.number }}"
 
         $getPullRequestUri = "https://api.github.com/repos/${{github.repository}}/pulls/${{github.event.pull_request.number}}"
-        $addCommentUri = "https://api.github.com/repos/${{github.repository}}/issues/${{github.event.pull_request.number}}/comments"
+        $addCommentUri = "https://api.github.com/repos/${{github.repository}}/pulls/${{github.event.pull_request.number}}/comments"
 
         $pullRequestData = Invoke-WebRequest -Uri $getPullRequestUri -Headers @{'Accept' = 'application/json'; 'Authorization' = 'token ${{github.token}}'} | ConvertFrom-Json
 
         if($pullRequestData.description -eq $null){
 
             $bodyContent = "Please add link to an Azure Devops workitem to associate with the PR."
-            Invoke-WebRequest -Uri $addCommentUri -Method POST -Headers @{'Accept' = 'application/json'; 'Authorization' = 'token ${{github.token}}'} -Body '{"body": "Please add link to an Azure Devops workitem to associate with the PR."}'
+            Invoke-WebRequest -Uri $addCommentUri -Method POST -Headers @{'Accept' = 'application/json'; 'Authorization' = 'token ${{github.token}}'} -Body '{"body": ":stop :stop **Please add link to an Azure Devops workitem to associate with the PR.** :stop :stop"}'
             Write-Host $bodyContent
             exit 1;
         }
