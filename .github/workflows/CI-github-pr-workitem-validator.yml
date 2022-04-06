@@ -15,9 +15,12 @@ jobs:
 
         $getPullRequestUri = "https://api.github.com/repos/${{github.repository}}/pulls/${{github.event.pull_request.number}}"
 
-        Write-Host $getPullRequestUri
+        $pullRequestData = Invoke-WebRequest -Uri $getPullRequestUri -Headers @{'Accept' = 'application/json'; 'Authorization' = 'token ${{github.token}}'} | ConvertFrom-Json
 
-        $pullRequestData = Invoke-WebRequest -Uri $getPullRequestUri -Headers @{'Accept' = 'application/json'; 'Authorization' = 'token ${{github.token}}'}
+        if($pullRequestData.description -eq $null){
 
-        Write-Host $pullRequestData
+            Write-Host "Please add link to an Azure Devops workitem to associate with the PR."
+            exit 1;
+        }
+
       shell: pwsh
