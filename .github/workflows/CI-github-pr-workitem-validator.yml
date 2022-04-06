@@ -2,7 +2,7 @@ name: CI-github-pr-workitem-validator
 on: [pull_request]
 
 jobs:
-  label:
+  Validate Workitem Relation:
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -21,7 +21,7 @@ jobs:
         if($pullRequestData.description -eq $null){
 
             $bodyContent = "Please add link to an Azure Devops workitem to associate with the PR."
-            Invoke-WebRequest -Uri $addCommentUri -Method POST -Headers @{'Accept' = 'application/json'; 'Authorization' = 'token ${{github.token}}'} -Body '{"body": ":stop :stop **Please add link to an Azure Devops workitem to associate with the PR.** :stop :stop"}'
+            Invoke-WebRequest -Uri $addCommentUri -Method POST -Headers @{'Accept' = 'application/json'; 'Authorization' = 'token ${{github.token}}'} -Body '{"body": "**Please add link to an Azure Devops workitem to associate with the PR.**"}'
             Write-Host $bodyContent
             exit 1;
         }
